@@ -21,7 +21,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Fatih04643/FatihPortfolyo.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/Fatih04643/Mehmet_Fatih_Portfolyo.git&quot;,
     &quot;accountId&quot;: &quot;830e1376-9d32-48b5-a559-8b14ce379c57&quot;
   }
 }</component>
@@ -39,6 +39,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -66,6 +67,8 @@
       <workItem from="1747576443713" duration="26000" />
       <workItem from="1747576484222" duration="3000" />
       <workItem from="1747576503640" duration="34000" />
+      <workItem from="1747582955131" duration="31000" />
+      <workItem from="1747583057465" duration="5000" />
     </task>
     <servers />
   </component>
