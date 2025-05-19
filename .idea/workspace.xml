@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6cceffc-0a31-4849-8a67-cd164d979349" name="Changes" comment="" />
+    <list default="true" id="b6cceffc-0a31-4849-8a67-cd164d979349" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/favicon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/images/fatih.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/images/not_fefteri.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/images/oyunn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/images/soru_bankası.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/images/ürün_yönetim.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/main.6276b135.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/main.6276b135.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.25b27311.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.25b27311.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.25b27311.js.map" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +85,7 @@
       <workItem from="1747678329445" duration="216000" />
       <workItem from="1747678566587" duration="445000" />
       <workItem from="1747679068009" duration="15000" />
+      <workItem from="1747681722893" duration="326000" />
     </task>
     <servers />
   </component>
