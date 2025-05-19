@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, Typography, Container, Avatar } from '@mui/material';
+import { Box, Typography, Container, Avatar, Button } from '@mui/material';
+import { motion } from 'framer-motion';
+import { Link } from 'react-scroll';
 
 function Home() {
   return (
@@ -19,9 +21,9 @@ function Home() {
           right: 0,
           bottom: 0,
           background: `
-            radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 100% 0%, rgba(100, 255, 218, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 50% 100%, rgba(100, 255, 218, 0.1) 0%, transparent 50%)
+            radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 100% 0%, rgba(100, 255, 218, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 50% 100%, rgba(100, 255, 218, 0.15) 0%, transparent 50%)
           `,
           zIndex: 1,
         },
@@ -43,111 +45,193 @@ function Home() {
           position: 'relative',
           zIndex: 2,
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
+          justifyContent: 'space-between',
           gap: 5,
           padding: { xs: '2rem', md: '3rem' },
-          background: 'rgba(17, 34, 64, 0.6)',
-          backdropFilter: 'blur(10px)',
-          borderRadius: '16px',
-          border: '1px solid rgba(100, 255, 218, 0.1)',
-          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.2)',
-          maxWidth: '900px !important',
+          maxWidth: '1200px !important',
           margin: '0 auto',
-          transition: 'all 0.3s ease-in-out',
-          '&:hover': {
-            transform: 'translateY(-5px)',
-            boxShadow: '0 12px 40px 0 rgba(0, 0, 0, 0.3)',
-          }
         }}
       >
         <Box
           sx={{
-            width: { xs: 220, md: 280 },
-            height: { xs: 220, md: 280 },
-            position: 'relative',
-            '&::before': {
-              content: '""',
-              position: 'absolute',
-              top: -4,
-              left: -4,
-              right: -4,
-              bottom: -4,
-              borderRadius: '8px',
-              background: 'linear-gradient(45deg, #64ffda, #7c3aed)',
-              opacity: 0.5,
-              zIndex: 0,
-            },
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              top: -3,
-              left: -3,
-              right: -3,
-              bottom: -3,
-              borderRadius: '8px',
-              background: 'linear-gradient(225deg, #7c3aed, #64ffda)',
-              opacity: 0.3,
-              filter: 'blur(12px)',
-              zIndex: 0,
-            },
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: { xs: 'center', md: 'flex-start' },
+            gap: 3,
           }}
         >
-          <Avatar
-            src="/images/fatih.jpg"
-            alt="Profile Photo"
-            sx={{
-              width: '100%',
-              height: '100%',
-              border: '4px solid rgba(100, 255, 218, 0.2)',
-              position: 'relative',
-              zIndex: 1,
-              borderRadius: '8px',
-              boxShadow: '0 0 30px rgba(100, 255, 218, 0.2)',
-              transition: 'all 0.3s ease-in-out',
-              '&:hover': {
-                transform: 'scale(1.05)',
-                border: '4px solid rgba(100, 255, 218, 0.4)',
-                boxShadow: '0 0 40px rgba(100, 255, 218, 0.3)',
-              },
-            }}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Typography
+              variant="h2"
+              component="h1"
+              sx={{
+                fontWeight: 800,
+                mb: 2,
+                background: 'linear-gradient(45deg, #64ffda, #7c3aed)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                letterSpacing: '1px',
+                fontSize: { xs: '2.5rem', md: '4rem' },
+                lineHeight: 1.2,
+              }}
+            >
+              Mehmet Fatih Günül
+            </Typography>
+            <Typography
+              variant="h5"
+              sx={{
+                color: '#8892b0',
+                letterSpacing: '0.5px',
+                fontWeight: 500,
+                mb: 4,
+                fontSize: { xs: '1.2rem', md: '1.8rem' },
+                maxWidth: '600px',
+                textAlign: 'center'
+              }}
+            >
+              Bilgisayar Mühendisliği Öğrencisi
+            </Typography>
+            <Box sx={{ 
+              display: 'flex', 
+              gap: 2,
+              justifyContent: 'center',
+              width: '100%'
+            }}>
+              <Link
+                to="portfolio"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={1500}
+                delay={100}
+                isDynamic={true}
+                spyThrottle={500}
+              >
+                <Button
+                  variant="contained"
+                  sx={{
+                    background: 'linear-gradient(45deg, #64ffda 30%, #7c3aed 90%)',
+                    color: '#0a192f',
+                    fontWeight: 600,
+                    padding: '10px 25px',
+                    borderRadius: '8px',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #5ae8c5 30%, #6d32d1 90%)',
+                      transform: 'translateY(-2px)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Projelerimi Gör
+                </Button>
+              </Link>
+              <Link
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={1500}
+                delay={100}
+                isDynamic={true}
+                spyThrottle={500}
+              >
+                <Button
+                  variant="outlined"
+                  sx={{
+                    border: '2px solid #64ffda',
+                    color: '#64ffda',
+                    fontWeight: 600,
+                    padding: '10px 25px',
+                    borderRadius: '8px',
+                    '&:hover': {
+                      border: '2px solid #64ffda',
+                      background: 'rgba(100, 255, 218, 0.1)',
+                      transform: 'translateY(-2px)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Mesaj Gönder
+                </Button>
+              </Link>
+            </Box>
+          </motion.div>
         </Box>
 
-        <Box sx={{ textAlign: 'center' }}>
-          <Typography
-            variant="h2"
-            component="h1"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Box
             sx={{
-              fontWeight: 800,
-              mb: 2,
-              background: 'linear-gradient(45deg, #64ffda, #7c3aed)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              letterSpacing: '1px',
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-            }}
-          >
-            Mehmet Fatih Günül
-          </Typography>
-          <Typography
-            variant="h5"
-            sx={{
-              color: '#ccd6f6',
-              letterSpacing: '0.5px',
-              fontWeight: 500,
-              mb: 3,
-              fontSize: { xs: '1.2rem', md: '1.5rem' },
-              opacity: 0.9,
-              transition: 'opacity 0.3s ease',
-              '&:hover': {
-                opacity: 1,
+              width: { xs: 280, md: 400 },
+              height: { xs: 280, md: 400 },
+              position: 'relative',
+              perspective: '1000px',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: -8,
+                left: -8,
+                right: -8,
+                bottom: -8,
+                borderRadius: '16px',
+                background: 'linear-gradient(45deg, #64ffda, #7c3aed)',
+                opacity: 0.6,
+                zIndex: 0,
+                transform: 'rotateY(10deg) rotateX(10deg)',
+                transition: 'all 0.3s ease',
+              },
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                top: -6,
+                left: -6,
+                right: -6,
+                bottom: -6,
+                borderRadius: '16px',
+                background: 'linear-gradient(225deg, #7c3aed, #64ffda)',
+                opacity: 0.4,
+                filter: 'blur(20px)',
+                zIndex: 0,
+                transform: 'rotateY(10deg) rotateX(10deg)',
+                transition: 'all 0.3s ease',
+              },
+              '&:hover::before, &:hover::after': {
+                transform: 'rotateY(15deg) rotateX(15deg)',
               },
             }}
           >
-            Bilgisayar Mühendisliği Öğrencisi
-          </Typography>
-        </Box>
+            <Avatar
+              src="/images/fatih.jpg"
+              alt="Profile Photo"
+              sx={{
+                width: '100%',
+                height: '100%',
+                border: '4px solid rgba(100, 255, 218, 0.25)',
+                position: 'relative',
+                zIndex: 1,
+                borderRadius: '16px',
+                boxShadow: '0 0 35px rgba(100, 255, 218, 0.25)',
+                transition: 'all 0.4s ease-in-out',
+                transform: 'rotateY(10deg) rotateX(10deg)',
+                '&:hover': {
+                  transform: 'rotateY(15deg) rotateX(15deg) scale(1.05)',
+                  border: '4px solid rgba(100, 255, 218, 0.5)',
+                  boxShadow: '0 0 50px rgba(100, 255, 218, 0.4)',
+                },
+              }}
+            />
+          </Box>
+        </motion.div>
       </Container>
     </Box>
   );
