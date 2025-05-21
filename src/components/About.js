@@ -7,7 +7,7 @@ const aboutSections = [
         title: 'Kişisel Bilgiler',
         icon: Person,
         color: '#64ffda',
-        content: 'Merhaba ben Fatih, Bilgisayar Mühendisi öğrencisiyim.'
+        content: 'Merhaba ben Fatih, 19 yaşındayım.İzmirde yaşıyorum.'
     },
     {
         title: 'Eğitim',

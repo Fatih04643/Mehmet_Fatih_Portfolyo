@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AppBar,
   Box,
@@ -15,7 +15,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-scroll';
 import { GitHub, Twitter, LinkedIn, Instagram } from '@mui/icons-material';
 
-const pages = ['Home', 'About', 'Skills', 'Portfolio', 'Contact'];
+const pages = [
+  { name: 'Ana Sayfa', id: 'home' },
+  { name: 'Ben Kimim?', id: 'about' },
+  { name: 'Neler Yapabilirim?', id: 'skills' },
+  { name: 'Portfolyo', id: 'portfolio' },
+  { name: 'İletişim', id: 'contact' }
+];
 
 const socialLinks = [
   { icon: <GitHub />, url: 'https://github.com/Fatih04643', label: 'GitHub' },
@@ -26,6 +32,7 @@ const socialLinks = [
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
+  const [activeSection, setActiveSection] = useState('home');
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,6 +41,48 @@ function Navbar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = pages.map(page => page.id);
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navButtonStyle = (isActive) => ({
+    my: 2,
+    color: 'white',
+    display: 'block',
+    position: 'relative',
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      bottom: 0,
+      left: '50%',
+      transform: isActive ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)',
+      width: '80%',
+      height: '2px',
+      background: 'linear-gradient(45deg, #64ffda 30%, #7c3aed 90%)',
+      transition: 'transform 0.3s ease',
+    },
+    '&:hover::after': {
+      transform: 'translateX(-50%) scaleX(1)',
+    },
+  });
 
   return (
     <AppBar position="fixed">
@@ -83,16 +132,22 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem 
+                  key={page.id} 
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    background: activeSection === page.id ? 'rgba(100, 255, 218, 0.1)' : 'transparent',
+                  }}
+                >
                   <Link
-                    to={page.toLowerCase()}
+                    to={page.id}
                     spy={true}
                     smooth={true}
                     offset={-64}
                     duration={500}
-                    style={{ textDecoration: 'none', color: 'inherit' }}
+                    style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}
                   >
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography textAlign="center">{page.name}</Typography>
                   </Link>
                 </MenuItem>
               ))}
@@ -143,27 +198,26 @@ function Navbar() {
             PORTFOLIO
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                key={page.id}
+                sx={navButtonStyle(activeSection === page.id)}
               >
                 <Link
-                  to={page.toLowerCase()}
+                  to={page.id}
                   spy={true}
                   smooth={true}
                   offset={-64}
                   duration={500}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
-                  {page}
+                  {page.name}
                 </Link>
               </Button>
             ))}
           </Box>
 
-          {/* Social Media Icons */}
           <Stack 
             direction="row" 
             spacing={1}
